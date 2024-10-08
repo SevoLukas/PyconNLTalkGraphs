@@ -1,0 +1,16 @@
+@startuml
+skinparam defaultFontName JetBrains Mono
+skinparam dpi 300
+skinparam backgroundColor #252A31
+skinparam ArrowColor #E98305
+
+state "GAME_OVER" as go1
+state GAME_PAUSED
+state "GAME_RUNNING" as gr1
+state "GAME_RUNNING" as gr2
+
+go1 -right-> gr1
+gr1 -> GAME_PAUSED
+GAME_PAUSED -right-> gr2
+
+@enduml
