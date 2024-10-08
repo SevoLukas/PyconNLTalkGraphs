@@ -1,0 +1,15 @@
+@startuml
+skinparam defaultFontName JetBrains Mono
+skinparam dpi 300
+skinparam backgroundColor #252A31
+skinparam ArrowColor #E98305
+
+[*] #00A58E --> GAME_RUNNING
+
+
+GAME_OVER --> GAME_RUNNING : <font color="white">'Player clicks start'</font>
+GAME_RUNNING --> GAME_OVER : <font color="white">'Player dies'</font>
+GAME_RUNNING --> GAME_PAUSED : <font color="white">'Player clicks pause'</font>
+GAME_PAUSED --> GAME_RUNNING : <font color="white">'Player clicks resume'</font>
+
+@enduml
