@@ -1,0 +1,24 @@
+@startuml
+skinparam defaultFontName JetBrains Mono
+skinparam dpi 300
+skinparam backgroundColor #252A31
+skinparam ArrowColor #E98305
+
+[*] #00A58E --> INITIAL
+
+INITIAL --> NAME : <font color="white">'x'</font>
+NAME --> INITIAL : <font color="white">' '</font>
+INITIAL --> OPERATOR_DELIMITER : <font color="white">'='</font>
+OPERATOR_DELIMITER --> INITIAL : <font color="white">' '</font>
+INITIAL --> NUMBER : <font color="white">'4'</font>
+NUMBER --> NUMBER : <font color="white">'2'</font>
+NUMBER --> ENDMARKER : <font color="white">EOF</font>
+
+ENDMARKER --> [*] #00A58E
+
+NAME : Accumulate 'x'
+"OPERATOR_DELIMITER" : Generate EQUAL token
+NUMBER : Accumulate '42'
+ENDMARKER : Generate ENDMARKER token
+
+@enduml
