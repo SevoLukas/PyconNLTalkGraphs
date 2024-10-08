@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'skinparam ActivationBackgroundColor #Orange
+'skinparam classFontSize 20
+skinparam defaultFontName TSCu_Comic
+'skinparam handwritten true
+skinparam dpi 300
+skinparam backgroundColor #00A58E
+left to right direction
+
+  
+object "MoneyDeposited" as deposit1{
+id : 1
+amount : 1000
+}
+
+object "MoneyDeposited" as deposit2{
+id : 2
+amount : 200
+}
+
+object "MoneyWithdrawn" as withdraw1{
+id : 3
+amount : 150
+}
+
+deposit1 --> deposit2
+deposit2 --> withdraw1
+
+@enduml
