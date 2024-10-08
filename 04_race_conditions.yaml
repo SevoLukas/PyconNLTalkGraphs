@@ -1,0 +1,32 @@
+@startuml
+skinparam defaultFontName JetBrains Mono
+skinparam dpi 300
+skinparam backgroundColor #252A31
+skinparam ArrowColor #E98305
+
+skinparam sequence {
+    LifeLineColor green
+    LifeLineBorderColor green
+    ArrowFontColor white
+
+}
+
+database "<font color=white>Database</font>" as db
+participant Worker1 as w1
+participant Worker2 as w2
+
+db -> w1 : read 1000
+db -> w2 : read 1000
+
+hnote over w1
+Deposit 200
+endnote
+
+hnote over w2
+Withdraw 150
+endnote
+
+w1 -> db : write 1200
+w2 -> db : write 850
+
+@enduml
