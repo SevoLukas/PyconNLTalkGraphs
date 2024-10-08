@@ -1,0 +1,51 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'skinparam ActivationBackgroundColor #Orange
+'skinparam classFontSize 20
+skinparam defaultFontName JetBrains Mono
+skinparam dpi 300
+skinparam backgroundColor #252A31
+skinparam frame{
+  BorderColor #00A58E
+  FontColor #E98305
+}
+
+frame "CQRS - Event Sourcing / Event driven architecture" as eda{
+card Withdraw[
+Withdraw Money
+---
+id: 1
+Amount: 100
+]
+
+queue Queue
+
+frame "Event Sourcing" as es{
+node Worker
+
+card Withdrawn[
+Money Withdrawn
+---
+id: 1
+amount: 100
+]
+
+database Database as db{
+}
+}
+}
+
+note bottom of Withdraw
+This is a command
+endnote
+
+note bottom of Withdrawn
+This is an Event
+endnote
+
+Withdraw -> Queue #E98305
+Queue -> Worker #E98305
+Worker -> Withdrawn #E98305
+Withdrawn -> db #E98305
+
+@enduml
